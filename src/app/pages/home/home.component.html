@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>First Row</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span class="right-aligned">
+      <button mat-icon-button aria-label="Movie search">
+        <mat-icon>search</mat-icon>
+      </button>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="movies-wrapper">
+  <div class="movie-container" *ngFor="let movie of movies">
+    <img
+      src="https://image.tmdb.org/t/p/w342{{ movie.poster_path }}"
+      alt="{{ movie.title }}"
+    />
+    <div class="movie-info">
+      <h4>{{ movie.title }}</h4>
+      <h6>{{ stringToDate(movie.release_date).getFullYear() }}</h6>
+    </div>
+  </div>
+</div>

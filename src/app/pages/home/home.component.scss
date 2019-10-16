@@ -1,0 +1,64 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar-row {
+  span.right-aligned {
+    flex: auto;
+  }
+}
+div.movies-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0 100px;
+  position: relative;
+
+  .movie-container {
+    width: 25%;
+    margin: 0px;
+    position: relative;
+    transition: transform 300ms ease-in-out, box-shadow 200ms ease-in-out;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .movie-info {
+      position: absolute;
+      bottom: 0;
+      padding: 10px;
+      width: 100%;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8)
+      );
+      display: none;
+      transition: display 200ms ease-in;
+
+      h4 {
+        color: white;
+        letter-spacing: 1px;
+      }
+
+      h6 {
+        color: white;
+        letter-spacing: 2px;
+      }
+    }
+  }
+  .movie-container:hover {
+    transform: scale(1.2);
+    z-index: 10;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+    .movie-info {
+      display: block;
+    }
+  }
+}
