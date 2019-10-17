@@ -4,6 +4,7 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row>
+    <span></span>
     <span class="right-aligned">
       <button mat-icon-button aria-label="Movie search">
         <mat-icon>search</mat-icon>
@@ -13,7 +14,11 @@
 </mat-toolbar>
 
 <div class="movies-wrapper">
-  <div class="movie-container" *ngFor="let movie of movies">
+  <div
+    class="movie-container"
+    *ngFor="let movie of movies"
+    [routerLink]="['/movie', movie.id]"
+  >
     <img
       src="https://image.tmdb.org/t/p/w342{{ movie.poster_path }}"
       alt="{{ movie.title }}"

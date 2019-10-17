@@ -1,0 +1,77 @@
+div.movie-info {
+  width: 80%;
+  margin: auto;
+  div.backdrop {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    img.backdrop-image {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    div.title-poster {
+      position: absolute;
+      bottom: -40px;
+      left: 20px;
+      height: 50vh;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      img.poster-image {
+        max-height: 100%;
+      }
+      div.title {
+        margin-bottom: 40px;
+        padding: 20px;
+        color: white;
+        background-image: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.4),
+          transparent
+        );
+        h3 {
+          letter-spacing: 1px;
+          font-size: 30px;
+          span.divider {
+            color: white;
+            padding: 0 10px;
+          }
+          span.rating {
+            font-size: 20px;
+          }
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  div.info {
+    margin-top: 80px;
+    div.overview {
+      margin: 20px 0;
+    }
+    div.cast {
+      h4 {
+        letter-spacing: 1px;
+      }
+      div.cast-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        overflow-y: auto;
+        margin: 20px 0;
+        padding: 10px 0;
+        mat-card.actor-card {
+          margin: 0 10px;
+          flex: 1 0 300px;
+          div {
+            min-height: 450px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<div class="movie-info" *ngIf="movieInfo">
+  <div class="backdrop">
+    <img
+      src="https://image.tmdb.org/t/p/w1280{{ movieInfo.backdrop_path }}"
+      alt="{{ movieInfo.title }}"
+      class="backdrop-image"
+    />
+    <div class="title-poster">
+      <img
+        src="https://image.tmdb.org/t/p/w342{{ movieInfo.poster_path }}"
+        alt="{{ movieInfo.title }}"
+        class="poster-image"
+      />
+      <div class="title">
+        <h3>
+          {{ movieInfo.title }}
+          <span class="divider">|</span>
+          <span class="rating" color="primary">{{
+            movieInfo.vote_average
+          }}</span>
+        </h3>
+        <p>{{ movieInfo.tagline }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <mat-chip-list>
+      <mat-chip *ngFor="let genre of movieInfo.genres">{{
+        genre.name
+      }}</mat-chip>
+      <mat-chip *ngFor="let company of movieInfo.production_companies">{{
+        company.name
+      }}</mat-chip>
+    </mat-chip-list>
+    <div class="overview">
+      <p>{{ movieInfo.overview }}</p>
+    </div>
+    <mat-list>
+      <mat-list-item>
+        <h3 matLine>Budget</h3>
+        <p matLine>
+          {{ movieInfo.budget }}
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <h3 matLine>Revenue</h3>
+        <p matLine>
+          {{ movieInfo.revenue }}
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <h3 matLine>Release Date</h3>
+        <p matLine>
+          {{ movieInfo.release_date }}
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <h3 matLine>Runtime</h3>
+        <p matLine>{{ movieInfo.runtime }} minutes</p>
+      </mat-list-item>
+      <mat-list-item>
+        <h3 matLine>Languages</h3>
+        <p matLine>
+          <span *ngFor="let language of movieInfo.spoken_languages"
+            >{{ language.name }},</span
+          >
+        </p>
+      </mat-list-item>
+      <mat-list-item *ngIf="movieInfo.homepage">
+        <h3 matLine>Homepage</h3>
+        <a matLine href="{{ movieInfo.homepage }}">{{ movieInfo.homepage }}</a>
+      </mat-list-item>
+    </mat-list>
+    <div class="cast">
+      <h4>Cast</h4>
+      <div class="cast-wrapper">
+        <mat-card class="actor-card" *ngFor="let actor of movieCast">
+          <img
+            mat-card-image
+            src="https://image.tmdb.org/t/p/w342{{ actor.profile_path }}"
+            alt="Photo of {{ actor.name }}"
+            *ngIf="actor.profile_path"
+          />
+          <div *ngIf="!actor.profile_path"></div>
+          <mat-card-header>
+            <mat-card-title>{{ actor.name }}</mat-card-title>
+            <mat-card-subtitle>{{ actor.character }}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="movie-placeholder" *ngIf="!movieInfo">
+  <p>Movie works</p>
+</div>
