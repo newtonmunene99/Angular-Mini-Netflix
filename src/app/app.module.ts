@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from "../environments/environment";
 import { FavouritesComponent } from "./pages/favourites/favourites.component";
 import { SearchComponent } from "./pages/search/search.component";
+import { AngularFireAuthGuard } from "@angular/fire/auth-guard";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { SearchComponent } from "./pages/search/search.component";
     AngularFireAuthModule, // auth
     FormsModule
   ],
-  providers: [],
+  providers: [AngularFireAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
