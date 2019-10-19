@@ -4,43 +4,22 @@
     <span class="middle"></span>
     <span>
       <button
-        *ngIf="afAuth.user | async as user; else showLogin"
+        *ngIf="afAuth.user | async as user"
         mat-flat-button
         [matMenuTriggerFor]="menu"
       >
         {{ user.displayName }}
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/favourites']">Favourites</button>
-        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-menu-item [routerLink]="['/']">Home</button>
       </mat-menu>
-
-      <ng-template #showLogin>
-        <button mat-flat-button color="accent" (click)="login()">
-          Login with Google
-        </button>
-      </ng-template>
-    </span>
-  </mat-toolbar-row>
-
-  <mat-toolbar-row>
-    <span></span>
-    <span class="right-aligned">
-      <button
-        mat-icon-button
-        aria-label="Movie search"
-        [routerLink]="['/search']"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
-
 <div class="movies-wrapper">
   <div
     class="movie-container"
-    *ngFor="let movie of movies"
+    *ngFor="let movie of favourites"
     [routerLink]="['/movie', movie.id]"
   >
     <img

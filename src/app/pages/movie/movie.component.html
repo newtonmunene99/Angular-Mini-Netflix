@@ -32,6 +32,24 @@
         company.name
       }}</mat-chip>
     </mat-chip-list>
+    <div class="favourited-wrapper">
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngIf="movie | async"
+        (click)="removeFromFavourites()"
+      >
+        Remove from favorites
+      </button>
+      <button
+        mat-flat-button
+        color="primary"
+        *ngIf="!(movie | async)"
+        (click)="addToFavourites()"
+      >
+        Add to favorites
+      </button>
+    </div>
     <div class="overview">
       <p>{{ movieInfo.overview }}</p>
     </div>

@@ -11,6 +11,7 @@
         {{ user.displayName }}
       </button>
       <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/']">Home</button>
         <button mat-menu-item [routerLink]="['/favourites']">Favourites</button>
         <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
@@ -22,25 +23,23 @@
       </ng-template>
     </span>
   </mat-toolbar-row>
-
-  <mat-toolbar-row>
-    <span></span>
-    <span class="right-aligned">
-      <button
-        mat-icon-button
-        aria-label="Movie search"
-        [routerLink]="['/search']"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-    </span>
-  </mat-toolbar-row>
 </mat-toolbar>
-
+<div class="search-wrapper">
+  <mat-form-field appearance="outline">
+    <mat-label>Search for a movie</mat-label>
+    <input
+      type="search"
+      matInput
+      [(ngModel)]="value"
+      (ngModelChange)="search($event)"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
 <div class="movies-wrapper">
   <div
     class="movie-container"
-    *ngFor="let movie of movies"
+    *ngFor="let movie of results"
     [routerLink]="['/movie', movie.id]"
   >
     <img

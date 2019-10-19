@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MovieService } from "src/app/services/movie.service";
-
+import { AngularFireAuth } from "@angular/fire/auth";
+import { auth } from "firebase/app";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -9,7 +10,10 @@ import { MovieService } from "src/app/services/movie.service";
 export class HomeComponent implements OnInit {
   movies: any[] = [];
   page = 1;
-  constructor(public movieService: MovieService) {}
+  constructor(
+    public movieService: MovieService,
+    public afAuth: AngularFireAuth
+  ) {}
 
   ngOnInit() {
     this.discoverMovies(this.page);
@@ -25,7 +29,6 @@ export class HomeComponent implements OnInit {
         language: "en-US"
       })
       .then(response => {
-        console.log(response);
         if (response.page == 1) {
           this.movies = response.results;
         } else {
@@ -39,5 +42,12 @@ export class HomeComponent implements OnInit {
 
   stringToDate(date: string): Date {
     return new Date(date);
+  }
+
+  login() {
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }

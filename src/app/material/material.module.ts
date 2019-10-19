@@ -8,6 +8,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatChipsModule } from "@angular/material/chips";
+import { MatMenuModule } from "@angular/material/menu";
 @NgModule({
   imports: [
     MatSidenavModule,
@@ -18,7 +19,8 @@ import { MatChipsModule } from "@angular/material/chips";
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ],
   exports: [
     MatSidenavModule,
@@ -29,7 +31,8 @@ import { MatChipsModule } from "@angular/material/chips";
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ]
 })
 export class MaterialComponentsModule {}

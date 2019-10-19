@@ -1,14 +1,15 @@
-.example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 mat-toolbar-row {
   span.middle {
     flex: 1 1 auto;
+  }
+}
+div.search-wrapper {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-form-field {
+    width: 70%;
   }
 }
 div.movies-wrapper {

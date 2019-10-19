@@ -1,6 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import { FormsModule } from "@angular/forms";
+
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -11,9 +13,17 @@ import { MovieComponent } from "./pages/movie/movie.component";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { environment } from "../environments/environment.f";
+import { environment } from "../environments/environment";
+import { FavouritesComponent } from "./pages/favourites/favourites.component";
+import { SearchComponent } from "./pages/search/search.component";
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MovieComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    MovieComponent,
+    FavouritesComponent,
+    SearchComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +31,8 @@ import { environment } from "../environments/environment.f";
     MaterialComponentsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
-    AngularFireAuthModule // auth
+    AngularFireAuthModule, // auth
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
