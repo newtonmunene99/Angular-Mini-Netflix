@@ -4,8 +4,9 @@
 
 ## Prereq
 
-1. Create a new firebase project and replace the values in `src/environments/environment.ts` with your own.
-2. Get your own api key from [The Movie Db](https://www.themoviedb.org/settings/api) and replace the one in `src/app/services/movie.service.ts`
+1. Create a new firebase project and replace the values in `src/environments/environment.copy.ts` and `src/environments/environment.prod.copy.ts` with your own.
+2. Remove *.copy* from both files so that it's `src/environments/environment.ts` and `src/environments/environment.prod.ts`
+3. Get your own api key from [The Movie Db](https://www.themoviedb.org/settings/api) and replace the one in `src/app/services/movie.service.ts`
 
 ### To run locally
 
